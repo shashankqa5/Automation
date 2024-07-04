@@ -13,5 +13,9 @@ jobs:
         uses: actions/checkout@v2   # Action to checkout the automation-repo's code
 
       - name: Run Test Automation
+     
+       with:
+        token: ${{ secrets.AUTOMATION_1SECRET }}
         run: |
+        
           mvn -B package --file pom.xml   # Replace with the path to your automation script
