@@ -1,0 +1,17 @@
+name: Automated Tests
+
+on:
+  repository_dispatch:
+    types: [run-tests]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2   # Action to checkout the automation-repo's code
+
+      - name: Run Test Automation
+        run: |
+          mvn -B package --file pom.xml   # Replace with the path to your automation script
